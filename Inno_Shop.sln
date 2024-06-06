@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagementService", "Microservices\ProductManagementService\ProductManagementService.csproj", "{3DDDB55C-9B03-44C8-8E9A-FA55FB8F9A55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{5F83FCB4-7E58-442A-B9DA-ADF13716EBC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductManagement", "ProductManagement", "{9848FEB8-D6CD-456D-9DFF-61A62FD20951}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserManagement", "UserManagement", "{C1F4A588-38DA-47DC-BA04-0264BB2F9E8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementService", "Microservices\UserManagementService\UserManagementService.csproj", "{90801272-F366-42D5-8BBE-75D991612A2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DDDB55C-9B03-44C8-8E9A-FA55FB8F9A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DDDB55C-9B03-44C8-8E9A-FA55FB8F9A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DDDB55C-9B03-44C8-8E9A-FA55FB8F9A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DDDB55C-9B03-44C8-8E9A-FA55FB8F9A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90801272-F366-42D5-8BBE-75D991612A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90801272-F366-42D5-8BBE-75D991612A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90801272-F366-42D5-8BBE-75D991612A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90801272-F366-42D5-8BBE-75D991612A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DDDB55C-9B03-44C8-8E9A-FA55FB8F9A55} = {9848FEB8-D6CD-456D-9DFF-61A62FD20951}
+		{9848FEB8-D6CD-456D-9DFF-61A62FD20951} = {5F83FCB4-7E58-442A-B9DA-ADF13716EBC0}
+		{C1F4A588-38DA-47DC-BA04-0264BB2F9E8E} = {5F83FCB4-7E58-442A-B9DA-ADF13716EBC0}
+		{90801272-F366-42D5-8BBE-75D991612A2E} = {C1F4A588-38DA-47DC-BA04-0264BB2F9E8E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD6A0FC6-D059-42F5-B790-603AC2861CBD}
+	EndGlobalSection
+EndGlobal
