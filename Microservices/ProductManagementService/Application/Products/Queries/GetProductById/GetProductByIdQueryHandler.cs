@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ProductManagementService.Application.Common.Exceptions;
 using ProductManagementService.Application.DTOs;
+using ProductManagementService.Domain.Models;
 using ProductManagementService.Infrastructure.Data;
 
 namespace ProductManagementService.Application.Products.Queries.GetProductById
@@ -23,9 +25,7 @@ namespace ProductManagementService.Application.Products.Queries.GetProductById
                 product.Id == request.Id, cancellationToken);
 
             if (entity == null) // || entity.UserId != request.UserId)
-            {
-                throw new Exception(); // NotFoundException(nameof(Product), request.Id);
-            }
+                throw new EntityNotFoundException(nameof(Product), request.Id);
 
             return _mapper.Map<ProductDTO>(entity);
         }

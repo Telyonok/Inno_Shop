@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
-using ProductManagementService.Application.Products.Commands.CreateProduct;
+using ProductManagementService.Application.Common.Exceptions;
+using ProductManagementService.Domain.Models;
 using ProductManagementService.Infrastructure.Data;
 
 namespace ProductManagementService.Application.Products.Commands.DeleteProduct
@@ -24,9 +25,7 @@ namespace ProductManagementService.Application.Products.Commands.DeleteProduct
                 .FindAsync([command.Id], cancellationToken);
 
             if (entity == null) // entity.UserId != command.UserId)
-            {
-                throw new Exception(); // NotFoundException(nameof(Product), command.Id);
-            }
+                throw new EntityNotFoundException(nameof(Product), command.Id);
 
             _context.Products.Remove(entity);
             await _context.SaveChangesAsync(cancellationToken);

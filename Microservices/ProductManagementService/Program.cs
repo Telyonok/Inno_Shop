@@ -4,6 +4,7 @@ using System.Reflection;
 using ProductManagementService.Application.Common.AutoMapperProfiles;
 using FluentValidation;
 using ProductManagementService.Application.Products.Commands.CreateProduct;
+using ProductManagementService.Presentation.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthorization();
 

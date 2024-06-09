@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using ProductManagementService.Application.Products.Commands.CreateProduct;
+using ProductManagementService.Application.Common.Exceptions;
+using ProductManagementService.Domain.Models;
 using ProductManagementService.Infrastructure.Data;
-using System.ComponentModel.DataAnnotations;
 
 namespace ProductManagementService.Application.Products.Commands.UpdateProduct
 {
@@ -26,9 +26,7 @@ namespace ProductManagementService.Application.Products.Commands.UpdateProduct
                 product.Id == command.Id, cancellationToken);
 
             if (entity == null) // || entity.UserId != command.UserId)
-            {
-                throw new Exception(); // NotFoundException(nameof(Product), command.Id);
-            }
+                throw new EntityNotFoundException(nameof(Product), command.Id);
 
             entity.Title = command.Title;
             entity.Description = command.Description;
