@@ -6,8 +6,7 @@ using ProductManagementService.Infrastructure.Data;
 
 namespace ProductManagementService.Application.Products.Queries.GetProductById
 {
-    public class GetProductByIdQueryHandler
-        : IRequestHandler<GetProductByIdQuery, ProductDTO>
+    public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, ProductDTO>
     {
         private readonly ProductsDbContext _context;
         private readonly IMapper _mapper;

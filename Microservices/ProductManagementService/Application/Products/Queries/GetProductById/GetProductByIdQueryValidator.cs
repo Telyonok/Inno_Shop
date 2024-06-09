@@ -6,7 +6,7 @@ namespace ProductManagementService.Application.Products.Queries.GetProductById
     {
         public GetProductByIdQueryValidator()
         {
-            RuleFor(deleteProductCommand => deleteProductCommand.Id).GreaterThanOrEqualTo(0);
+            RuleFor(getProductByIdQuery => getProductByIdQuery.Id).GreaterThanOrEqualTo(0);
         }
     }
 }

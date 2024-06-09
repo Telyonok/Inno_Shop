@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductManagementService.Application.DTOs;
 using ProductManagementService.Application.Products.Commands.CreateProduct;
@@ -8,6 +7,7 @@ using ProductManagementService.Application.Products.Commands.DeleteProduct;
 using ProductManagementService.Application.Products.Commands.UpdateProduct;
 using ProductManagementService.Application.Products.Queries.GetAllProducts;
 using ProductManagementService.Application.Products.Queries.GetProductById;
+using ProductManagementService.Application.Products.Queries.GetProductsByFilter;
 
 namespace ProductManagementService.Presentation.Controllers
 {
@@ -34,6 +34,15 @@ namespace ProductManagementService.Presentation.Controllers
             return Ok(result);
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<ProductDTO>>> GetProductsByFilter([FromQuery] GetProductsByFilterDTO getProductsByFilterDTO)
+        {
+            var query = _mapper.Map<GetProductsByFilterQuery>(getProductsByFilterDTO);
+
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDTO>> GetProductById(int id)
         {
@@ -47,8 +56,8 @@ namespace ProductManagementService.Presentation.Controllers
         }
 
 
-        [HttpPost("create")]
-        public async Task<ActionResult> Create([FromBody] CreateProductDTO createProductDTO)
+        [HttpPost]
+        public async Task<ActionResult> CreateProduct([FromBody] CreateProductDTO createProductDTO)
         {
             var command = _mapper.Map<CreateProductCommand>(createProductDTO);
 
@@ -59,8 +68,8 @@ namespace ProductManagementService.Presentation.Controllers
         }
 
 
-        [HttpPut("update")]
-        public async Task<IActionResult> Update([FromBody] UpdateProductDTO updateProductDTO)
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductDTO updateProductDTO)
         {
             var command = _mapper.Map<UpdateProductCommand>(updateProductDTO);
 
@@ -71,7 +80,7 @@ namespace ProductManagementService.Presentation.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
             var command = new DeleteProductCommand
             {

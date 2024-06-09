@@ -6,12 +6,12 @@ namespace ProductManagementService.Application.Products.Commands.UpdateProduct
     {
         public UpdateProductCommandValidator() 
         {
-            RuleFor(createProductCommand =>
-                createProductCommand.Title).NotEmpty().MaximumLength(100);
-            RuleFor(createProductCommand =>
-                createProductCommand.Description).NotEmpty().MaximumLength(500);
-            RuleFor(createProductCommand =>
-                createProductCommand.Price).GreaterThan(0).LessThan(decimal.MaxValue);
+            RuleFor(updateProductCommand =>
+                updateProductCommand.Title).NotEmpty().MaximumLength(100);
+            RuleFor(updateProductCommand =>
+                updateProductCommand.Description).NotEmpty().MaximumLength(500);
+            RuleFor(updateProductCommand =>
+                updateProductCommand.Price).GreaterThan(0).LessThan(decimal.MaxValue);
         }
     }
 }
