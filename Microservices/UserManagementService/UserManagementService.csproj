@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Users\Commands\" />
+    <Folder Include="Application\Users\Queries\" />
+    <Folder Include="Infrastructure\Data\" />
+  </ItemGroup>
+
 </Project>
